@@ -1,3 +1,5 @@
+[![GoDoc](https://godoc.org/github.com/WhisperingChaos/argp?status.svg)](https://godoc.org/github.com/WhisperingChaos/argp)
+
 # argp
 Implements the partitioning performed by a Linux command shell of its command line input into tokens. However,
 it decouples reading input by accepting any source that implements the io.Reader interface. Furthermore,
