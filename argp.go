@@ -43,11 +43,11 @@ func Parse(
 		// performance. If these semantics change, the scanner may also
 		// require coding changes.
 		switch tokenIDextract(s.Bytes()) {
-		case tARGUMENT:
+		case tArgument:
 			argCurr += escapeSubstitute(tokenExtract(s.Bytes()), escAll)
-		case tARGUMENT_ENCAP:
+		case tArgumentEncap:
 			argCurr += tokenExpose(tokenExtract(s.Bytes()), escDbl)
-		case tWHITESPACE:
+		case tWhiteSpace:
 			if argCurr != "" {
 				args = append(args, argCurr)
 			}
@@ -89,13 +89,13 @@ func escapeReplace(in []byte) []byte {
 	return []byte{in[1]}
 }
 
-type tokenId byte
+type tokenID byte
 
 const (
 	// start with lower case t so scope is private to package.
-	tARGUMENT = iota
-	tARGUMENT_ENCAP
-	tWHITESPACE
+	tArgument = iota
+	tArgumentEncap
+	tWhiteSpace
 )
 
 func cliConfig(args io.Reader) (s *bufio.Scanner) {
@@ -124,7 +124,7 @@ func scanConfig() func(data []byte, atEOF bool) (advance int, token []byte, err 
 				// situation where forcing a buffer read would only
 				// produce a single whitespace, it's therefore, unnecessary
 				// to force a buffer read.
-				return tokenGen(tWHITESPACE, part)
+				return tokenGen(tWhiteSpace, part)
 			}
 			if part := tokenNotEncapComplete.Find(data); part != nil {
 				// Note parser will simply concatenate two consecutive
@@ -136,10 +136,10 @@ func scanConfig() func(data []byte, atEOF bool) (advance int, token []byte, err 
 				// situation should not be a problem as this escape character
 				// will occupy the first byte of the buffer likely followed
 				// by any remaining text.
-				return tokenGen(tARGUMENT, part)
+				return tokenGen(tArgument, part)
 			}
 			if part := tokenEncapComplete.Find(data); part != nil {
-				return tokenGen(tARGUMENT_ENCAP, part)
+				return tokenGen(tArgumentEncap, part)
 			}
 			if !atEOF {
 				if part := tokenEncapPartial.Find(data); part != nil {
@@ -156,7 +156,7 @@ func scanConfig() func(data []byte, atEOF bool) (advance int, token []byte, err 
 		}
 	}
 }
-func tokenGen(id tokenId, token []byte) (advance int, tok []byte, err error) {
+func tokenGen(id tokenID, token []byte) (advance int, tok []byte, err error) {
 	tok = append(tok, byte(id))
 	tok = append(tok, token...)
 	return len(token), tok, err
