@@ -135,6 +135,6 @@ func TestArgNotEncapLeadingWhitespaceSingle(t *testing.T) {
 	assrt := assert.New(t)
 	args, err := Parse(strings.NewReader(`        a                                                                                               `))
 	assrt.Nil(err)
-	assrt.Equal(0, len(args))
+	assrt.Equal(1, len(args))
 	assrt.Equal(`a`, args[0])
 }
