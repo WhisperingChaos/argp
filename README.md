@@ -1,4 +1,4 @@
-[![GoDoc](https://godoc.org/github.com/WhisperingChaos/argp?status.svg)](https://godoc.org/github.com/WhisperingChaos/argp)
+[![GoDoc](https://godoc.org/github.com/WhisperingChaos/argp?status.svg)](https://godoc.org/github.com/WhisperingChaos/argp)  [![Codeship Status for WhisperingChaos/argp](https://app.codeship.com/projects/8993d540-7103-0137-16d9-7e46550b1a94/status?branch=master)](https://app.codeship.com/projects/348320)
 
 # argp
 Implements the partitioning performed by a Linux command shell of its command line input into tokens. However,
