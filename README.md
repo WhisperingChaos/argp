@@ -1,4 +1,4 @@
-[![GoDoc](https://godoc.org/github.com/WhisperingChaos/argp?status.svg)](https://godoc.org/github.com/WhisperingChaos/argp)  [![Codeship Status for WhisperingChaos/argp](https://app.codeship.com/projects/8993d540-7103-0137-16d9-7e46550b1a94/status?branch=master)](https://app.codeship.com/projects/348320)
+[![GoDoc](https://godoc.org/github.com/WhisperingChaos/argp?status.svg)](https://godoc.org/github.com/WhisperingChaos/argp)  [![Codeship Status for WhisperingChaos/argp](https://app.codeship.com/projects/8993d540-7103-0137-16d9-7e46550b1a94/status?branch=master)](https://app.codeship.com/projects/348320)  <a href="https://goreportcard.com/badge/github.com/whisperingchaos/argp"><img src="https://goreportcard.com/badge/github.com/golang/dep" /></a>  [![MIT Licence](https://badges.frapsoft.com/os/mit/mit.png?v=103)](https://opensource.org/licenses/mit-license.php)
 
 # argp
 Implements the partitioning performed by a Linux command shell of its command line input into tokens. However,
