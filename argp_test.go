@@ -101,6 +101,13 @@ func TestArgNotEncapAndEncapSingle(t *testing.T) {
 	assrt.Equal(len(args), 1)
 	assrt.Equal(`abcdef`, args[0])
 }
+func TestArgNotEncapAndEncapTrailingWhitespaceSingle(t *testing.T) {
+	assrt := assert.New(t)
+	args, err := Parse(strings.NewReader(`"abc"def     	`))
+	assrt.Nil(err)
+	assrt.Equal(len(args), 1)
+	assrt.Equal(`abcdef`, args[0])
+}
 func TestArgNotEncapSingleFail(t *testing.T) {
 	assrt := assert.New(t)
 	args, err := Parse(strings.NewReader(`"`))
