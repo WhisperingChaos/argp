@@ -17,7 +17,7 @@ import (
 )
 
 /*
-Path converts input into tokens.  There are two token types: unencapsulated and encapsulated.  Unencapsulated tokens are composed from consecutive non-whitespace characters while encapsulated tokens are character strings delimited by either single or double quotes which may contain whitespace. Although the scanner presents these two token types to the parser, the parser will aggregate these tokens into a single one unless they're separated by whitespace.  Each individual resulting parser token is appended, as a new element, of  the output args slice.
+Parse converts input into tokens.  There are two token types: unencapsulated and encapsulated.  Unencapsulated tokens are composed from consecutive non-whitespace characters while encapsulated tokens are character strings delimited by either single or double quotes which may contain whitespace. Although the scanner presents these two token types to the parser, the parser will aggregate these tokens into a single one unless they're separated by whitespace.  Each individual resulting parser token is appended, as a new element, of  the output args slice.
 
 Besides tokenizing the input, the parser will remove the delimiting quotes around encapsulated tokens.  Additionally, when delimited by double quotes, the parser will remove the escape character before either an embedded double quote or another escape character.  No such processing is performed for encapsulated tokens delimited by single quotes.  Finally, for unencapsulated tokens, all instances of the escape character are replaced by the character that follows the escape.
 
